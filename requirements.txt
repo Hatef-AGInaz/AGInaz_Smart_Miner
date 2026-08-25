@@ -1,0 +1,9 @@
+playwright
+httpx
+beautifulsoup4
+selectolax
+markdownify
+pydantic
+openai
+rich
+python-dotenv

@@ -1,0 +1,16 @@
+# Environments
+venv/
+env/
+.env
+
+# Cache
+__pycache__/
+*.pyc
+
+# Outputs
+outputs/
+*.csv
+
+# Repomix output
+repomix-output.txt
+repomix-output.xml
