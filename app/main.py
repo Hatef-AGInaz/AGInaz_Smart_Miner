@@ -1,23 +1,25 @@
 import asyncio
-import csv
-import logging
 import os
-from dotenv import load_dotenv
+import sys
+import logging
 
-load_dotenv(override=True)
+if sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8')
+if sys.stderr.encoding.lower() != 'utf-8':
+    sys.stderr.reconfigure(encoding='utf-8')
 
 from crawler.router import route
-from llm.provider import extract_product
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 async def main():
-    print("🚀 Starting AGInaz Smart Miner (Dynamic Extraction Engine)...\n")
+    print("🚀 Starting AGInaz Smart Miner Engine (Extraction Only)...\n")
 
-    url = "https://webscraper.io/test-sites/e-commerce/ajax/computers/laptops"
+    # Sample test URL (e.g., Grass project used in DePIN tests)
+    url = "https://getgrass.io/"
     print(f"🎯 Target URL: {url}")
 
-    # Routing threshold: pages under 600 chars will trigger Playwright (Dynamic rendering)
+    # Fallback to Playwright if text length is less than 600 characters
     result = await route(url, min_text_length=600)
 
     if not result["success"]:
@@ -26,27 +28,17 @@ async def main():
 
     raw_text = result["text"]
     print(f"✅ Content Extracted Successfully ({len(raw_text)} characters).")
-    print("🧠 Processing with AI Extraction Engine...")
 
-    try:
-        structured_data = await extract_product(raw_text)
-        print("\n✨ Data Extraction Completed Successfully! ✨\n")
+    # Save raw extracted text to inspect output quality
+    output_dir = "outputs"
+    os.makedirs(output_dir, exist_ok=True)
+    text_filepath = os.path.join(output_dir, "extracted_raw.txt")
 
-        output_dir = "outputs"
-        os.makedirs(output_dir, exist_ok=True)
-        csv_filepath = os.path.join(output_dir, "extracted_products.csv")
+    with open(text_filepath, "w", encoding="utf-8") as f:
+        f.write(raw_text)
 
-        with open(csv_filepath, mode="w", newline="", encoding="utf-8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["Title", "Price", "Description", "URL"])
-
-            for p in structured_data.products:
-                writer.writerow([p.title, p.price, p.description, p.url])
-                print(f"💻 {p.title[:45]}... | 💲{p.price}")
-
-        print(f"\n✅ Success! File saved to '{csv_filepath}'.")
-    except Exception as e:
-        print(f"\n❌ AI Processing Failed: {e}")
+    print(f"💾 Raw extracted text saved to '{text_filepath}'.")
+    print("✅ Ready to be consumed by Project 3 (DePIN Agent)!")
 
 if __name__ == "__main__":
     asyncio.run(main())

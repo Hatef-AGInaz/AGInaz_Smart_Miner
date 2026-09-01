@@ -8,11 +8,13 @@ logger = logging.getLogger(__name__)
 
 async def fetch_static(url: str) -> str:
     print(f"[httpx] Fetching static content from {url}")
-    async with httpx.AsyncClient(verify=False) as client:
+    async with httpx.AsyncClient(verify=False, follow_redirects=True) as client:
         response = await client.get(url, timeout=15.0)
         response.raise_for_status()
         print(f"HTTP Request: GET {url} \"HTTP/{response.http_version} {response.status_code}\"")
         soup = BeautifulSoup(response.text, "html.parser")
+        for tag in soup(["script", "style", "noscript"]):
+            tag.extract()
         return soup.get_text(separator=" ", strip=True)
 
 async def fetch_dynamic(url: str) -> str:
@@ -34,6 +36,8 @@ async def fetch_dynamic(url: str) -> str:
         await browser.close()
         
         soup = BeautifulSoup(content, "html.parser")
+        for tag in soup(["script", "style", "noscript"]):
+            tag.extract()
         return soup.get_text(separator=" ", strip=True)
 
 async def route(url: str, min_text_length: int = 600) -> Dict[str, Any]:

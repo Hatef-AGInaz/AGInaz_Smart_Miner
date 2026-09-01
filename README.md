@@ -46,16 +46,24 @@ Once raw content has been collected, Smart Miner delegates semantic extraction t
  Pydantic  Schema validation 
  CSV  Structured export 
 
-## 🚀 Current Status & Roadmap
+## 🚀 Version 1.1 — The Engine Update
 
-Version v1.0  Status Production-Ready MVP
-The current release represents a complete end-to-end extraction workflow. The repository has been intentionally minimized and cleaned to present the project as a focused, professional engineering product.
+**Status: Production-Ready Engine (v1.1)**
+
+In version 1.1, AGInaz Smart Miner has been heavily refactored to act as a **standalone extraction engine** for other AI systems (such as the *DePIN Research Agent*). 
+
+### Key Updates in v1.1:
+- **Engine-Ready Architecture:** Designed to seamlessly feed extracted, structured text/data directly into downstream AI pipelines.
+- **Reusable for Other Projects:** This smart miner is a highly modular tool that can be easily adapted and is extremely useful for other data extraction and AI projects.
+- **Robust Redirection Handling:** Seamlessly follows HTTP 301/302 redirects without dropping extraction tasks.
+- **Cross-Platform Stability:** Added native Windows UTF-8 encoding support to prevent terminal crashes when handling complex characters and emojis.
+- **Internationalization:** The entire codebase, including inline documentation and terminal outputs, has been standardized to English for global open-source adoption.
 
 ### v2.0 — Advanced Web Intelligence (Coming Soon)
- Advanced anti-bot environments & Cloudflare-aware strategies
- Complex authentication workflows (Multi-step logins)
- Direct integration with Vector Databases & Knowledge Graph pipelines
- RAG-ready data generation for AI Agents
+- Advanced anti-bot environments & Cloudflare-aware strategies
+- Complex authentication workflows (Multi-step logins)
+- Direct integration with Vector Databases & Knowledge Graph pipelines
+- RAG-ready data generation for AI Agents
 
 ---
-Built as the second project in the AGInaz three-project engineering portfolio.
+*Built as the foundational extraction engine in the AGInaz engineering portfolio.*
