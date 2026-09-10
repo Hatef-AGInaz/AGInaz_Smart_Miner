@@ -1,8 +1,12 @@
 # AGInaz Smart Miner 🚀
 
-Intelligent Web Extraction Pipeline — From Unstructured Websites to Validated, Machine-Ready Data
+Standalone, reusable web extraction engine — from unstructured websites to
+validated, machine-ready data.
 
-AGInaz Smart Miner is a production-ready intelligent web extraction pipeline designed to turn messy, unstructured web content into clean, structured data automatically.
+AGInaz Smart Miner v1.2.0 is a production-ready extraction engine designed to
+turn messy web content into clean data for downstream AI agents, research
+systems, ETL pipelines, and other software projects. It can run as a standalone
+engine; it is not tied to a UI or to the bundled product-extraction example.
 
 ## 🤔 Why Smart Miner
 
@@ -46,9 +50,60 @@ Once raw content has been collected, Smart Miner delegates semantic extraction t
  Pydantic  Schema validation 
  CSV  Structured export 
 
-## 🚀 Version 1.1 — The Engine Update
+## 🚦 Version 1.2.0 — Explainable Smart Routing
 
-**Status: Production-Ready Engine (v1.1)**
+**Status: Current release (v1.2.0)**
+
+The router now evaluates static content using deterministic visible-character,
+word-count, and text-diversity signals. It uses Playwright only when one or more
+quality checks fail and reports stable reason codes for that decision.
+
+`route()` remains compatible with existing consumers: `success`, `text`, and
+`error` are always present. Routing details are returned separately under
+`routing`:
+
+```python
+{
+    "success": True,
+    "text": "extracted visible text",
+    "error": None,
+    "routing": {
+        "strategy": "static",  # static, dynamic, or failed
+        "fallback_used": False,
+        "reason_codes": ["STATIC_QUALITY_ACCEPTED"],
+        "visible_character_count": 1234,
+        "timing_ms": {"static": 18.2, "dynamic": 0.0, "total": 18.3},
+    },
+}
+```
+
+Fallback reason codes are `INSUFFICIENT_VISIBLE_TEXT`,
+`INSUFFICIENT_WORD_COUNT`, and `LOW_TEXT_DIVERSITY`. Failures use
+`ROUTING_ERROR`.
+
+Run the isolated unit tests (no live website access) with:
+
+```bash
+python -m unittest discover -v
+```
+
+## Changelog
+
+### v1.2.0
+
+- Replaced the single length threshold with deterministic content-quality checks.
+- Added strategy, fallback, reason-code, visible-character, and timing metadata.
+- Preserved the existing `success`, `text`, and `error` response keys.
+- Added mocked HTTPX and Playwright unit tests.
+
+### v1.1
+
+- Refactored the project into a reusable extraction engine.
+- Added redirect handling and Windows UTF-8 output support.
+
+## Previous release: v1.1 — The Engine Update
+
+**Status: Historical release**
 
 In version 1.1, AGInaz Smart Miner has been heavily refactored to act as a **standalone extraction engine** for other AI systems (such as the *DePIN Research Agent*). 
 
@@ -67,3 +122,4 @@ In version 1.1, AGInaz Smart Miner has been heavily refactored to act as a **sta
 
 ---
 *Built as the foundational extraction engine in the AGInaz engineering portfolio.*
+
