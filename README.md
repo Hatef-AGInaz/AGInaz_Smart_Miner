@@ -87,4 +87,10 @@ before deciding whether to publish it, and only then add a live-demo link here.
 This engine portfolio does not need a GitHub Release; the repository and demo
 are the presentation.
 
+## Copyright and use
+
+Copyright © 2026 Hatef-AGInaz. All rights reserved. This public portfolio is
+available to view, but it is not open source and does not grant permission to
+reuse its code or other contents. See [LICENSE](LICENSE) for details.
+
 **Project:** AGInaz · **Private development target:** v1.3.0
