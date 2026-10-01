@@ -2,6 +2,8 @@
 
 **Turn messy web pages into reusable, structured documents for research workflows.**
 
+**[▶ Try the interactive Streamlit demo](https://aginaz-smart-miner.streamlit.app/)**
+
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white)
 ![HTTPX](https://img.shields.io/badge/HTTPX-HTTP_fetch-3B82F6?style=flat-square)
 ![Playwright](https://img.shields.io/badge/Playwright-browser_fallback-2EAD33?style=flat-square&logo=playwright&logoColor=white)
@@ -29,7 +31,7 @@ a document that can be reused for later extraction.
 | 📄 A messy page turned into structured input | [Before/after example](examples/sample-output.md) |
 | 🖥️ A visual walkthrough | [Static HTML demo](demo/index.html) |
 | 🧩 A small implementation excerpt | [Content-quality signal](examples/content_quality.py) and [its tests](tests/test_content_quality.py) |
-| 🎛️ An interactive local preview | [Streamlit app](streamlit_app.py) |
+| 🎛️ Try the public routing signal | [Live Streamlit demo](https://aginaz-smart-miner.streamlit.app/) · [App source](streamlit_app.py) |
 
 The HTML demo shows recorded output. The Streamlit app lets you try the public
 routing signal and inspect the same recorded cleaning example. Neither demo
@@ -84,8 +86,7 @@ synthetic output and a small v1.2 routing-signal excerpt with tests. It has a
 fresh Git history, separate from the private engine repository. The fetcher,
 cleaner, orchestrator, browser control and LLM provider are **not included**.
 
-The public Streamlit app is included for local testing and Community Cloud
-deployment. A hosted demo link can be added here after deployment. This engine
+The public Streamlit app runs on Community Cloud from this repository. The
 portfolio does not need a GitHub Release.
 
 ## 🔒 Copyright and use
