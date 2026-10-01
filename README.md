@@ -34,33 +34,42 @@ The HTML demo shows recorded output. It does not fetch a website or call an LLM.
 
 ## 🏗️ How the engine works
 
+### 1. Choose the fetch method
+
 ```mermaid
-flowchart TD
-    A["🌐 Page URL"] --> B["⚡ HTTPX fetch"]
-    B --> C{"🛡️ Challenge or access block?"}
-    C -- Yes --> X["⛔ Stop before extraction"]
-    C -- No --> D{"🔎 Enough useful content?"}
-    D -- Yes --> G["🧹 Local cleaner"]
-    D -- No --> E["🧭 Playwright browser fallback"]
-    E --> F{"🛡️ Challenge or access block?"}
+flowchart LR
+    A["🌐 URL"] --> B["⚡ HTTPX"]
+    B --> C{"Blocked?"}
+    C -- Yes --> X["⛔ Stop"]
+    C -- No --> D{"Useful content?"}
+    D -- Yes --> G["🧹 Clean"]
+    D -- No --> E["🧭 Playwright"]
+    E --> F{"Blocked?"}
     F -- Yes --> X
     F -- No --> G
-    G --> H["📄 Reusable CleanDocument"]
-    H --> I{"🤖 Structured data needed?"}
-    I -- No --> J["✅ Use the clean document"]
-    I -- Yes --> K["🤖 Optional model extraction"]
-    K --> L["✅ Pydantic schema validation"]
 
-    classDef input fill:#dbeafe,stroke:#2563eb,color:#0f172a;
-    classDef process fill:#dcfce7,stroke:#16a34a,color:#0f172a;
+    classDef fetch fill:#dbeafe,stroke:#2563eb,color:#0f172a;
     classDef decision fill:#fef3c7,stroke:#d97706,color:#0f172a;
     classDef stop fill:#fee2e2,stroke:#dc2626,color:#0f172a;
-    classDef output fill:#ede9fe,stroke:#7c3aed,color:#0f172a;
-    class A input;
-    class B,E,G,K process;
-    class C,D,F,I decision;
+    classDef clean fill:#dcfce7,stroke:#16a34a,color:#0f172a;
+    class A,B,E fetch;
+    class C,D,F decision;
     class X stop;
-    class H,J,L output;
+    class G clean;
+```
+
+### 2. Reuse or structure the result
+
+```mermaid
+flowchart LR
+    A["🧹 Local cleaner"] --> B["📄 CleanDocument"]
+    B --> C["✅ Reuse directly"]
+    B --> D["🤖 Optional model extraction"] --> E["✅ Pydantic validation"]
+
+    classDef process fill:#dcfce7,stroke:#16a34a,color:#0f172a;
+    classDef output fill:#ede9fe,stroke:#7c3aed,color:#0f172a;
+    class A,D process;
+    class B,C,E output;
 ```
 
 - ⚡ **Browser only when needed:** the fallback has a bounded wait for dynamic
