@@ -61,7 +61,7 @@ flowchart TD
 ### 2. Reuse or structure the result
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["🧹 Local cleaner"] --> B["📄 CleanDocument"]
     B --> C["✅ Reuse directly"]
     B --> D["🤖 Optional model extraction"] --> E["✅ Pydantic validation"]
