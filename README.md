@@ -37,7 +37,7 @@ The HTML demo shows recorded output. It does not fetch a website or call an LLM.
 ### 1. Choose the fetch method
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["🌐 URL"] --> B["⚡ HTTPX"]
     B --> C{"Blocked?"}
     C -- Yes --> X["⛔ Stop"]
