@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 272" role="img" aria-labelledby="title desc">
+  <title id="title">AGInaz Smart Miner pipeline</title>
+  <desc id="desc">A URL goes through an HTTP fetch and content check. Thin content triggers browser fallback. The result is cleaned into a reusable document, with optional model extraction and validation.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#10283c"/>
+      <stop offset="1" stop-color="#0a1728"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0L7 3.5L0 7Z" fill="#5eead4"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; }
+      .label { fill: #edf8ff; font-size: 18px; font-weight: 700; }
+      .small { fill: #acc5d5; font-size: 12px; }
+      .step { fill: #5eead4; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; }
+      .box { fill: #153046; stroke: #3b6475; stroke-width: 1.5; }
+      .flow { fill: none; stroke: #5eead4; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="858" height="270" rx="22" fill="url(#bg)" stroke="#2c5368" stroke-width="2"/>
+  <text x="28" y="36" class="step">FETCH → CHECK → CLEAN → REUSE</text>
+  <rect x="28" y="62" width="130" height="78" rx="13" class="box"/>
+  <text x="44" y="91" class="label">🌐 URL</text>
+  <text x="44" y="115" class="small">One target page</text>
+  <path d="M158 101H182" class="flow"/>
+  <rect x="188" y="62" width="159" height="78" rx="13" class="box"/>
+  <text x="204" y="91" class="label">⚡ HTTP fetch</text>
+  <text x="204" y="115" class="small">Check visible content</text>
+  <path d="M347 101H371" class="flow"/>
+  <rect x="377" y="62" width="181" height="78" rx="13" class="box"/>
+  <text x="393" y="91" class="label">🧭 Route</text>
+  <text x="393" y="115" class="small">Browser only if needed</text>
+  <path d="M558 101H582" class="flow"/>
+  <rect x="588" y="62" width="244" height="78" rx="13" class="box"/>
+  <text x="604" y="91" class="label">🧹 CleanDocument</text>
+  <text x="604" y="115" class="small">Text, links, tables, source, JSON-LD</text>
+  <path d="M709 140V167" class="flow"/>
+  <rect x="493" y="174" width="339" height="67" rx="13" class="box"/>
+  <text x="509" y="201" class="label">✅ Reuse or optional AI extraction</text>
+  <text x="509" y="224" class="small">Validate the requested output shape with Pydantic</text>
+  <text x="28" y="196" class="small">Blocked or challenged pages stop.</text>
+  <text x="28" y="216" class="small">The browser fallback has a bounded wait.</text>
+</svg>

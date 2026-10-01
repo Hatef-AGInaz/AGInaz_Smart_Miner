@@ -40,43 +40,9 @@ Run the Streamlit app locally with `pip install -r requirements.txt`, then
 
 ## 🏗️ How the engine works
 
-### 1. Choose the fetch method
-
-```mermaid
-flowchart TD
-    A["🌐 URL"] --> B["⚡ HTTPX"]
-    B --> C{"Blocked?"}
-    C -- Yes --> X["⛔ Stop"]
-    C -- No --> D{"Useful content?"}
-    D -- Yes --> G["🧹 Clean"]
-    D -- No --> E["🧭 Playwright"]
-    E --> F{"Blocked?"}
-    F -- Yes --> X
-    F -- No --> G
-
-    classDef fetch fill:#dbeafe,stroke:#2563eb,color:#0f172a;
-    classDef decision fill:#fef3c7,stroke:#d97706,color:#0f172a;
-    classDef stop fill:#fee2e2,stroke:#dc2626,color:#0f172a;
-    classDef clean fill:#dcfce7,stroke:#16a34a,color:#0f172a;
-    class A,B,E fetch;
-    class C,D,F decision;
-    class X stop;
-    class G clean;
-```
-
-### 2. Reuse or structure the result
-
-```mermaid
-flowchart TD
-    A["🧹 Local cleaner"] --> B["📄 CleanDocument"]
-    B --> C["✅ Reuse directly"]
-    B --> D["🤖 Optional model extraction"] --> E["✅ Pydantic validation"]
-
-    classDef process fill:#dcfce7,stroke:#16a34a,color:#0f172a;
-    classDef output fill:#ede9fe,stroke:#7c3aed,color:#0f172a;
-    class A,D process;
-    class B,C,E output;
-```
+<p align="center">
+  <img src="assets/pipeline-overview.svg" width="760" alt="Smart Miner pipeline: URL, HTTP fetch, content-based routing, clean document, and optional validated extraction">
+</p>
 
 - ⚡ **Browser only when needed:** the fallback has a bounded wait for dynamic
   content and runs only when the static-content checks call for it.
