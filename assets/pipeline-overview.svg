@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 272" role="img" aria-labelledby="title desc">
-  <title id="title">AGInaz Smart Miner pipeline</title>
+  <title id="title">Haiox Smart Miner pipeline</title>
   <desc id="desc">A URL goes through an HTTP fetch and content check. Thin content triggers browser fallback. The result is cleaned into a reusable document, with optional model extraction and validation.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1">
