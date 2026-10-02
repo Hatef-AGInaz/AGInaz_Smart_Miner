@@ -8,7 +8,7 @@ from examples.content_quality import evaluate_content_quality
 
 
 st.set_page_config(
-    page_title="AGInaz Smart Miner Engine",
+    page_title="Haiox Smart Miner Engine",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -206,4 +206,4 @@ with cleaning:
     )
 
 st.markdown('<div class="sm-divider"></div>', unsafe_allow_html=True)
-st.caption("© 2026 Hatef-AGInaz · Public portfolio preview · All rights reserved")
+st.caption("© 2026 Hatef-Haiox · Public portfolio preview · All rights reserved")
