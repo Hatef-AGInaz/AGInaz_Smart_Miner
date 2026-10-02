@@ -28,12 +28,16 @@ a document that can be reused for later extraction.
 
 | See it in action | Open |
 | --- | --- |
+| ⚡ Run the bounded live pipeline | [Haiox Smart Miner live demo](https://haiox-smart-miner.streamlit.app/) |
 | 📄 A messy page turned into structured input | [Before/after example](examples/sample-output.md) |
 | 🖥️ A visual walkthrough | [Static HTML demo](demo/index.html) |
 | 🧩 A small implementation excerpt | [Content-quality signal](examples/content_quality.py) and [its tests](tests/test_content_quality.py) |
 
-The HTML walkthrough and before/after example show recorded output from
-synthetic data. They do not fetch a website or call an LLM.
+The live demo runs the private engine on selected public documentation domains:
+HTTP-first fetching, cleaned Markdown and optional structured extraction via
+Qwen. It does not solve CAPTCHAs or accept arbitrary URLs. The HTML walkthrough
+and before/after example show recorded output from synthetic data; those do not
+fetch a website or call an LLM.
 
 ## 🏗️ How the engine works
 
