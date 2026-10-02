@@ -2,7 +2,15 @@
 
 **Turn messy web pages into reusable, structured documents for research workflows.**
 
-Previously published as **AGInaz Smart Miner**. This project is now part of Haiox.
+## 🚀 See it working live
+
+**[Open the Haiox Smart Miner live demo →](https://haiox-smart-miner.streamlit.app/)**
+
+No installation needed. Open the demo and click **Analyze page** on the
+pre-filled URL to watch the real engine choose a fetch strategy and produce a
+clean document. You can optionally run Qwen to see structured JSON output.
+This public demo accepts selected documentation sites; it is not an
+unrestricted crawler.
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white)
 ![HTTPX](https://img.shields.io/badge/HTTPX-HTTP_fetch-3B82F6?style=flat-square)
@@ -16,6 +24,8 @@ Previously published as **AGInaz Smart Miner**. This project is now part of Haio
 > This repository contains a small, testable routing excerpt from v1.2 and a
 > recorded example using synthetic data. It is not a downloadable engine build.
 
+Previously published as **AGInaz Smart Miner**. The project is now part of Haiox.
+
 ## 🤔 Why Smart Miner?
 
 Web pages do not all need the same extraction method. Plain HTML can be fetched
@@ -24,20 +34,16 @@ checks the visible content before deciding whether to render the page. It then
 keeps useful structure—headings, tables, links, source URL and valid JSON-LD—in
 a document that can be reused for later extraction.
 
-## 🔎 Explore the project
+## 🔎 Explore more
 
-| See it in action | Open |
+| Resource | Open |
 | --- | --- |
-| ⚡ Run the bounded live pipeline | [Haiox Smart Miner live demo](https://haiox-smart-miner.streamlit.app/) |
 | 📄 A messy page turned into structured input | [Before/after example](examples/sample-output.md) |
 | 🖥️ A visual walkthrough | [Static HTML demo](demo/index.html) |
 | 🧩 A small implementation excerpt | [Content-quality signal](examples/content_quality.py) and [its tests](tests/test_content_quality.py) |
 
-The live demo runs the private engine on selected public documentation domains:
-HTTP-first fetching, cleaned Markdown and optional structured extraction via
-Qwen. It does not solve CAPTCHAs or accept arbitrary URLs. The HTML walkthrough
-and before/after example show recorded output from synthetic data; those do not
-fetch a website or call an LLM.
+The HTML walkthrough and before/after example show recorded output from
+synthetic data; those do not fetch a website or call an LLM.
 
 ## 🏗️ How the engine works
 
