@@ -61,7 +61,7 @@ st.markdown(
 st.markdown(
     """
     <div class="sm-hero">
-      <div class="sm-eyebrow">AGINAZ / PUBLIC INTERACTIVE PREVIEW</div>
+      <div class="sm-eyebrow">HAIOX / PUBLIC INTERACTIVE PREVIEW</div>
       <h1>Smart Miner Engine<span style="color:#5eead4">.</span></h1>
       <p>From messy web pages to structured, reusable research input.</p>
       <span class="sm-chip">⚡ HTTP-first routing</span>
@@ -206,4 +206,4 @@ with cleaning:
     )
 
 st.markdown('<div class="sm-divider"></div>', unsafe_allow_html=True)
-st.caption("© 2026 Hatef-Haiox · Public portfolio preview · All rights reserved")
+st.caption("© 2026 Haiox · Public portfolio preview · All rights reserved")
