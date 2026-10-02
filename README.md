@@ -1,6 +1,8 @@
-# AGInaz Smart Miner Engine ⚡
+# Haiox Smart Miner Engine ⚡
 
 **Turn messy web pages into reusable, structured documents for research workflows.**
+
+Previously published as **AGInaz Smart Miner**. This project is now part of Haiox.
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white)
 ![HTTPX](https://img.shields.io/badge/HTTPX-HTTP_fetch-3B82F6?style=flat-square)
@@ -85,8 +87,8 @@ GitHub Release.
 
 ## 🔒 Copyright and use
 
-Copyright © 2026 Hatef-AGInaz. All rights reserved. This public portfolio is
+Copyright © 2026 Haiox. All rights reserved. This public portfolio is
 available to view, but it is not open source and does not grant permission to
 reuse its code or other contents. See [LICENSE](LICENSE) for details.
 
-**Project:** AGInaz · **Private development target:** v1.3.0
+**Project:** Haiox · **Private development target:** v1.3.0
