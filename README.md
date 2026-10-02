@@ -91,9 +91,10 @@ synthetic output and a small v1.2 routing-signal excerpt with tests. It has a
 fresh Git history, separate from the private engine repository. The fetcher,
 cleaner, orchestrator, browser control and LLM provider are **not included**.
 
-An experimental Streamlit routing widget is also in this repository, but it
-does not accept URLs or run the full engine. The portfolio does not need a
-GitHub Release.
+The live demo linked above is deployed separately from the private engine and
+accepts selected documentation URLs. The `streamlit_app.py` in this public
+repository is an older routing preview; it does not power that live demo.
+The portfolio does not need a GitHub Release.
 
 ## 🔒 Copyright and use
 
